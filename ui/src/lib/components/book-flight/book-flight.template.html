@@ -1,0 +1,16 @@
+
+<div>
+  {{ bookFlight.flight.origin }} to {{ bookFlight.flight.destination }}:
+  {{ bookFlight.flight.offset }}
+</div>
+<div class="">
+  <div ng-if="bookFlight.userstatusservice.isLoggedIn === false">
+    <button ng-click="bookFlight.goToLogin()" type="button" name="login">Login</button>
+  </div>
+  <div ng-if="bookFlight.userstatusservice.isLoggedIn">
+    <button ng-click="bookFlight.book()" class="md-button md-raised" type="button" name="book">BOOK NOW!</button>
+  </div>
+</div>
+<div>
+
+</div>

@@ -1,14 +1,17 @@
-import templateUrl from './app.component.html'
+import styles from './app.styles'
+import templateUrl from './app.template'
 
+const controller =
 /* @ngInject */
-class AppController {
-  constructor ($log) {
-    $log.debug('AppController is a go.')
+  class {
+    constructor (userstatusservice) {
+      this.userstatusservice = userstatusservice
+    }
+    styles = styles
   }
-}
 
-export default {
+export const app = {
   templateUrl,
-  controller: AppController,
-  controllerAs: '$appCtrl'
+  controller,
+  controllerAs: 'app'
 }

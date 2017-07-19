@@ -1,17 +1,32 @@
-import templateUrl from './map.component.html'
+import templateUrl from './map.template.html'
 
 /* @ngInject */
-class MapController {
+const controller = class {
   zoom = 7
   center = [35.5175, -86.5804]
   markers = []
   paths = []
 
-  constructor ($map, locations) {
-    this.$map = $map
+  constructor (mapservice) {
+    this.mapservice = mapservice
 
     // add markers from an angular constant
-    const { memphis, nashville, knoxville } = locations
+    const { memphis, nashville, knoxville } = {
+      memphis: {
+        latitude: 35.1495,
+        longitude: -90.0490
+      },
+
+      nashville: {
+        latitude: 36.1627,
+        longitude: -86.7816
+      },
+
+      knoxville: {
+        latitude: 35.9606,
+        longitude: -83.9207
+      }
+    }
     const markers = [memphis, nashville, knoxville]
 
     markers.forEach(marker => this.addMarker(marker))
@@ -25,7 +40,7 @@ class MapController {
     paths.forEach(args => this.addPath(...args))
 
     // add path from webservice
-    $map.getMarkerByCityName('Chattanooga')
+    mapservice.getMarkerByCityName('Chattanooga')
       .then(chattanooga => {
         this.addPath(knoxville, chattanooga, '#FF3388')
       })
@@ -49,8 +64,8 @@ class MapController {
 
 }
 
-export default {
+export const map = {
   templateUrl,
-  controller: MapController,
+  controller,
   controllerAs: '$mapCtrl'
 }

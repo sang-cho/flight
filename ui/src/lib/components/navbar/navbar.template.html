@@ -1,0 +1,25 @@
+
+<md-toolbar class="md-hue-2" layout-align="space-between center">
+
+<div layout="row" layout-align="start center" ></div>
+<br>
+<h1> Flight Reservation</h1>
+
+  <div layout="row" layout-align="end center">
+
+    <md-button ng-click='navbar.goToFlights()' class="md-raised" aria-label="Learn More" layout-align="end">
+      Flights
+    </md-button>
+
+    <md-button ng-click='navbar.goToHistory()' class="md-raised" aria-label="Learn More" layout-align="end">
+      History
+    </md-button>
+
+    <md-button ng-if='navbar.userstatusservice.isLoggedIn' ng-click='navbar.logOut()' class="md-raised" aria-label="Learn More" layout-align="end center">
+      Log off
+    </md-button>
+    <md-button ng-if='navbar.userstatusservice.isLoggedIn === false' ng-click='navbar.goToLogin()' class="md-raised" aria-label="Learn More" layout-align="end center">
+      Log In
+    </md-button>
+  </div>
+</md-toolbar>
