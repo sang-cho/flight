@@ -1,0 +1,21 @@
+<center>
+<div ng-repeat='flight in itinerary.savedItinerary'>
+
+  <div>
+    {{ flight.origin }} to {{ flight.destination }} at
+    {{ flight.offset }}
+  </div>
+</div>
+<div ng-if="itinerary.userstatusservice.isLoggedIn === false">
+  <button ng-click="itinerary.goToLogin()" type="button" name="login">Login</button>
+</div>
+<div ng-if="itinerary.userstatusservice.isLoggedIn && itinerary.savedItinerary.length > 0" >
+  <button ng-click="itinerary.book()" class="md-button md-raised" type="button" name="book">BOOK</button>
+</div>
+<div ng-if="itinerary.savedItinerary.length > 0">
+  <themap itinerary='itinerary.savedItinerary'></themap>
+</div>
+<div ng-if="itinerary.savedItinerary.length < 1">
+  No flights were found!
+</div>
+</center>

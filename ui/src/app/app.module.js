@@ -10,6 +10,9 @@ import ngMap from 'ngMap'
 import { allflights } from 'components/allflights'
 import { direct } from 'components/direct'
 import { bookFlight } from 'components/book-flight'
+import { itinerary } from 'components/itinerary'
+import { connecting } from 'components/connecting'
+
 
 
 import { credentials} from 'components/credentials'
@@ -18,7 +21,7 @@ import { createUser } from 'components/create-user'
 
 import { history } from 'components/history'
 import { navbar } from 'components/navbar'
-import { map } from 'components/map'
+import { themap } from 'components/themap'
 
 import { dataservice } from 'services/dataservice'
 import { userstatusservice } from 'services/userstatusservice'
@@ -51,10 +54,11 @@ export default
     .component('login', login)
     .component('credentials', credentials)
     .component('createUser', createUser)
-
+    .component('itinerary', itinerary)
     .component('navbar', navbar)
     .component('history', history)
-    .component('map',map)
+    .component('themap',themap)
+    .component('connecting', connecting)
 
 //-----SERVICES------//
 
